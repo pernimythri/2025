@@ -1,4 +1,5 @@
 // Brute force - O(N)
+// arr[index]>=x
 
 import java.util.*;
 class Main{
