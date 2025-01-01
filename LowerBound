@@ -1,0 +1,71 @@
+// Brute force - O(N)
+
+import java.util.*;
+class Main{
+
+    int LowerBound(int[] arr,int n,int x)
+    {
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]>=x)
+            return i;
+        }
+        return -1;
+    }
+
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        int x=sc.nextInt();
+        System.out.println(obj.LowerBound(arr,n,x));
+    }
+}
+-----------------------------------------------------------------------------------------------
+// Optimal - O(LOG N)
+
+import java.util.*;
+class Main{
+
+    int LowerBound(int[] arr,int n,int x)
+    {
+        int low=0,high=n-1,ans=n;
+        while(low<=high)
+        {
+        int mid=(low+high)/2;
+        if(arr[mid]>=x)
+        {
+            ans=mid;
+            high=mid-1;
+        }
+        else
+        {
+        low=mid+1;
+        }
+       }
+       return ans;
+    }
+    
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        int x=sc.nextInt();
+        System.out.println(obj.LowerBound(arr,n,x));
+
+    }
+}
+-------------------------------------------------------------------------
+
