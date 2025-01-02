@@ -1,0 +1,27 @@
+import java.util.*;
+class Main{
+    String anagram(String str1,String str2)
+    {
+        str1=str1.replaceAll("\\s", "").toLowerCase();
+        str2=str2.replaceAll("\\s", "").toLowerCase();
+         if(str1.length()!=str2.length())
+        return "Not anagram";
+        char[] str1array=str1.toCharArray();
+        char[] str2array=str2.toCharArray();
+        Arrays.sort(str1array);
+        Arrays.sort(str2array);
+        if(Arrays.equals(str1array,str2array))
+        return "Anagram";
+        else
+        return "Not Anagram";
+        
+    }
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        Main obj=new Main();
+        String str1=sc.nextLine();
+        String str2=sc.nextLine();
+        System.out.print(obj.anagram(str1,str2));
+    }
+}
