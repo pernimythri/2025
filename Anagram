@@ -25,3 +25,20 @@ class Main{
         System.out.print(obj.anagram(str1,str2));
     }
 }
+-----------------------------------------------------------------
+public static String fun(String s) {
+        char[] a = s.toCharArray(); 
+        Arrays.sort(a);            
+        return new String(a);      
+    }
+    public ArrayList<ArrayList<String>> anagrams(String[] a) {
+        HashMap<String, ArrayList<String>> map = new HashMap<>();
+        for (String s : a) {
+            String str = fun(s);
+            if (!map.containsKey(str)) {
+                map.put(str, new ArrayList<>());
+            }
+            map.get(str).add(s);
+        }
+        return new ArrayList<>(map.values());
+    }
