@@ -1,0 +1,47 @@
+import java.util.*;
+class Main{
+    
+    ArrayList<Integer>IndexesOfSubarraySum(int[] arr,int n,int target)
+    {
+      ArrayList<Integer>indexes=new ArrayList<>();
+      HashMap<Integer,Integer>mpp=new HashMap<>();
+      int sum=0;
+      for(int i=0;i<n;i++)
+      {
+          sum+=arr[i];
+          if(sum==target)
+          {
+              indexes.add(0);
+              indexes.add(i);
+              return indexes;
+          }
+          if(mpp.containsKey(sum-target))
+          {
+              indexes.add(mpp.get(sum-target)+1);
+              indexes.add(i);
+              return indexes;
+          }
+          mpp.put(sum,i);
+      }
+      indexes.add(-1);
+      return indexes;
+    }
+    
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        int target=sc.nextInt();
+        ArrayList<Integer>result = obj.IndexesOfSubarraySum(arr,n,target);
+        if(result==null)
+        System.out.print(-1);
+        else
+        System.out.print(result.get(0)+" "+result.get(1));
+    }
+}
