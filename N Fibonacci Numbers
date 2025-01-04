@@ -1,0 +1,26 @@
+import java.util.*;
+class Main{
+  int[] fibonacciNumbers(int n) {
+        if(n==0)
+        return new int[0];
+        
+        int[] fibarr=new int[n];
+        fibarr[0]=0;
+        if(n>1)
+        fibarr[1]=1;
+        for(int i=2;i<n;i++)
+        {
+            fibarr[i]=fibarr[i-1]+fibarr[i-2];
+        }
+        return fibarr;
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] result=obj.fibonacciNumbers(n);
+        System.out.print(Arrays.toString(result));
+    }
+    
+}
