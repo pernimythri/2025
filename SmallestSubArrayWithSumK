@@ -1,0 +1,62 @@
+import java.util.*;
+public class Main {
+    int SmallestSubArrayWithSumK(int[] arr, int n, int k) {
+        int minlength = n + 1;
+        for (int i = 0; i < n; i++) {
+            int sum = 0;
+            for (int j = i; j < n; j++) {
+                sum += arr[j];
+                if (sum > k) {
+                    minlength = Math.min(minlength, j - i + 1);
+                    break;
+                }
+            }
+        }
+        return (minlength == n + 1) ? -1 : minlength;
+    }
+    public static void main(String[] args) {
+        Main obj = new Main();
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int k = sc.nextInt();
+        System.out.println(obj.SmallestSubArrayWithSumK(arr, n, k));
+    }
+}
+-------------------------------------------------------------------------------------
+import java.util.*;
+public class Main {
+   int SmallestSubArrayWithSumK(int[] arr,int n,int k)
+   {
+       int sum=0;
+       int minlength=n+1;
+       int i=0;
+       for(int j=0;j<n;j++)
+       {
+         sum+=arr[j];
+         while(sum>k)
+         {
+           minlength=Math.min(minlength,j-i+1);
+           sum-=arr[i];
+           i++;
+         }
+       }
+       return (minlength==n+1)?-1 :minlength;
+    }
+    public static void main(String[] args) {
+      Main obj=new Main();
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      int[] arr=new int[n];
+      for(int i=0;i<n;i++)
+      {
+        arr[i]=sc.nextInt();
+      }
+      int k=sc.nextInt();
+      System.out.print(obj.SmallestSubArrayWithSumK(arr,n,k));
+     
+}
+}
