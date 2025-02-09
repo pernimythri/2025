@@ -1,0 +1,31 @@
+import java.util.*;
+class Main {
+    public Pair<Integer, Integer> getMinMax(int[] arr) {
+        int n=arr.length;
+        int min=Integer.MAX_VALUE;
+        int max=Integer.MIN_VALUE;
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]<min)
+            {
+                min=arr[i];
+            }
+            if(arr[i]>max)
+            max=arr[i];
+        }
+        return new Pair<>(min,max);
+    }
+    public static void main(String args[])
+    {
+        Main obj=new Main();
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr =new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        Pair<Integer,Integer> res=obj.getMinMax(arr);
+        System.out.println(res.get.Key()+" "+res.getValue());
+    }
+}
