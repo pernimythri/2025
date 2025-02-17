@@ -1,0 +1,29 @@
+import java.util.*;
+class Main{
+    
+    ArrayList<Integer> KlargestElements(int[] arr,int n,int k)
+    {
+        ArrayList<Integer> ls=new ArrayList<>();
+        Arrays.sort(arr);
+        for(int i=0;i<k;i++)
+        {
+            ls.add(arr[n-i-1]);
+        }
+        return ls;
+    }
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        Main obj=new Main();
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        int k=sc.nextInt();
+        ArrayList<Integer>result=obj.KlargestElements(arr,n,k);
+        for(int i:result)
+        System.out.print(i+" ");
+    }
+}
