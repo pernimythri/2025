@@ -1,0 +1,41 @@
+Time Limit Exceeded - output correct
+
+import java.util.*;
+class Main{
+    
+    ArrayList<Double> medianStream(int[] arr,int n)
+    {
+        ArrayList<Double>ans=new ArrayList<>();
+        for(int i=0;i<n;i++)
+        {
+         sort(arr,0,i+1);
+         if(i%2==0)
+         {
+             ans.add((double)arr[i/2]);
+         }
+         else
+         {
+             double median=(arr[i/2]+arr[(i+1)/2])/2.0;
+             ans.add(median);
+         }
+        }
+        return ans;
+    }
+    void sort(int[] arr,int i,int j)
+    {
+        Arrays.sort(arr,i,j);
+    }
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        Main obj=new Main();
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int  i=0;i<n;i++)
+        arr[i]=sc.nextInt();
+        ArrayList<Double> result=obj.medianStream(arr,n);
+        for(double val:result)
+        System.out.print(val+" ");
+        
+    }
+}
