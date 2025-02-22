@@ -1,0 +1,43 @@
+// InEfficient for larger values 
+
+import java.util.*;
+class Main{
+    int PerfectSquares(int a,int b)
+    {
+        int count=0;
+        for(int i=a;i<=b;i++)
+        {
+            int sqrt=(int) Math.sqrt(i);
+            if(sqrt*sqrt==i)
+            count+=1;
+        }
+        return count;
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        Main obj=new Main();
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        System.out.println(obj.PerfectSquares(a,b));
+    }
+}
+----------------------------------------------------------------------
+// Optimal
+
+import java.util.*;
+class Main{
+    int PerfectSquares(int a,int b)
+    {
+        return (int)Math.sqrt(b)-(int)Math.sqrt(a-1);
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        Main obj=new Main();
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        System.out.println(obj.PerfectSquares(a,b));
+    }
+}
+
