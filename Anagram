@@ -1,3 +1,25 @@
+class Solution {
+    public static boolean areAnagrams(String s1, String s2) {
+
+        // Your code here
+        if(s1.length()!=s2.length())
+        return false;
+        
+        int[] charArray=new int[26];
+        for(int  i=0;i<s1.length();i++)
+        {
+            charArray[s1.charAt(i)-'a']++;
+            charArray[s2.charAt(i)-'a']--;
+        }
+        for(int count:charArray)
+        {
+            if(count!=0)
+            return false;
+        }
+        return true;
+    }
+}
+-----------------------------------------------------------------------------------------
 import java.util.*;
 class Main{
     String anagram(String str1,String str2)
