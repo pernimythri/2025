@@ -1,0 +1,38 @@
+Create Main.java - consists 3 parts
+(1) Taking input
+(2) Implementation function
+(3) Printing output
+
+
+import java.util.*;
+class Main{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        String s1=sc.nextLine();
+        String s2=sc.nextLine();                    // Taking input
+        boolean val=new Solution().anagram(s1,s2);  // Implementation function
+        if(val)
+        System.out.print("anagram");                //Printing output
+        else
+        System.out.println("not anagram");
+    }
+}
+
+
+Create Solution.java - To have implementation function part
+
+import java.util.*;
+class Solution{
+    boolean anagram(String s1,String s2)
+    {
+        char[] s1charArray=s1.toCharArray();
+        char[] s2charArray=s2.toCharArray();
+        Arrays.sort(s1charArray);
+        Arrays.sort(s2charArray);
+        if(Arrays.equals(s1charArray,s2charArray))
+        return true;
+        else
+        return false;  
+    }
+}
