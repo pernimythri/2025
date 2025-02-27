@@ -1,0 +1,17 @@
+import java.util.*;
+class Solution{
+    boolean Palindrome(String s1)
+    {
+        int left=0;
+        int right=s1.length()-1;
+        while(left<right)
+        {
+            if(s1.charAt(left)!=s1.charAt(right))
+            return false;
+            left++;
+            right--;
+        }
+        return true;
+        
+    }
+}
