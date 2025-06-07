@@ -1,0 +1,91 @@
+class Main{
+    public static void main(String[] args)
+    {
+        LinkedList list=new LinkedList();
+        list.add_begin(10);
+        list.add_end(20);
+        list.print();
+        
+    }
+}
+
+
+
+class Node{
+    int data;
+    Node next;
+    Node prev;
+    Node(int value)
+    {
+        data=value;
+        prev=null;
+        next=null;
+    }
+}
+
+
+
+
+
+class LinkedList{
+    Node head;
+    public void add_end(int value)
+    {
+        Node newnode = new Node(value);
+        if(head==null)
+        {
+            head=newnode;
+            newnode.next=head;
+            newnode.prev=head;
+        }
+        Node current=head;
+        while(current.next!=head)
+        {
+            current=current.next;
+        }
+        current.next=newnode;
+        newnode.prev=current;
+        newnode.next=head;
+        head.prev=newnode;
+    }
+    
+    public void add_begin(int value)
+    {
+        Node newnode=new Node(value);
+        if(head==null)
+        {
+            head=newnode;
+            newnode.next=head;
+            newnode.prev=head;
+        }
+        newnode.next=head;
+        head.prev=newnode;
+        Node current=head;
+        while(current.next!=head)
+        {
+              current=current.next;
+        }
+        current.next=newnode;
+        newnode.prev=current;
+        head=newnode;
+    }
+    
+       public void print(){
+        if(head==null){
+            System.out.print("no data");
+        }
+        else{
+            Node current=head;
+            while(current.next!=head)
+            {
+                System.out.print(current.data);
+                current=current.next;
+            }
+             System.out.print(current.data);
+        }
+    }
+}
+
+
+
+
